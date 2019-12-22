@@ -28,8 +28,27 @@
                     <td>{{ champion.game_time }}</td>
                     <td>
                         <button>Edit</button>
-                        <button>Delete</button>
+                        <form action="/delete_champ" method="post">
+                            <input type="text" value="{{champion.id}}" style="display:none" name="champion-id">
+                            <input type="submit" Value="Delete">
+                        </form>
                     </td>
+                </tr>
+                <tr>
+                    <form action="/edit_champ" method="post">
+                        <input type="text" value="{{champion.id}}" style="display:none" name="champion-id">
+                        <td> <input type="text" value="{{champion.name}}" name="champion-name"> </td>
+                        <td> <input type="text" value="{{champion.matches}}" name="champion-matches"> </td>
+                        <td> <input type="text" value="{{champion.souls}}" name="champion-souls"> </td>
+                        <td> <input type="text" value="{{champion.stats}}" name="champion-stats"> </td>
+                        <td> <input type="text" value="{{champion.game_time}}" name="champion-game-time"> </td>
+                        <td>
+                            <input type="submit" value="Save">
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    next row
                 </tr>
             {% endfor %}
             </tbody>

@@ -13,8 +13,14 @@ def get_champions():
 
 def edit_champion(champion):
     for champ in championsDB:
-        if champ.id == champion.id:
+        if str(champ.id) == str(champion.id):
             assign_values(champ, champion)
+
+
+def delete_champion(champion_id):
+    for champ in championsDB:
+        if str(champ.id) == str(champion_id):
+            championsDB.remove(champ)
 
 
 def assign_values(champion_from_db, new_champion):
@@ -26,8 +32,8 @@ def assign_values(champion_from_db, new_champion):
 
 
 def get_champion_id():
-    minId = 0
+    maxId = 0
     for champ in championsDB:
-        if champ.id < minId:
-            minId = champ.id
-    return minId
+        if champ.id > maxId:
+            maxId = champ.id
+    return maxId + 1
