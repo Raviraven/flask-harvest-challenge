@@ -1,6 +1,11 @@
 championsDB = []
 
 
+
+def clear_champions_list():
+    championsDB.clear()
+
+
 def add_champion(new_champion):
     if new_champion.id is None or new_champion.id <= 0:
        new_champion.id = get_champion_id()
