@@ -4,3 +4,7 @@ venv/*
 .idea
 __pycache__/
 HarvestChallenge.txt
+
+HarvestChallenge.spec
+build/
+dist/
