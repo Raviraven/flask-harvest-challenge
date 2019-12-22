@@ -6,6 +6,9 @@ from Infrastructure.ChampionManager import add_champion
 from Infrastructure.ChampionManager import edit_champion
 from Infrastructure.ChampionManager import delete_champion
 from Models.Champion import Champion
+from Infrastructure.FilesOperations import read_data_from_file
+from Infrastructure.FilesOperations import save_data_to_file
+
 
 
 def get_champion_web_model():
@@ -29,6 +32,7 @@ else:
 
 @app.route('/', methods=["GET"])
 def index():
+    read_data_from_file()
     championsDB = get_champions()
     return render_template("index.html", championsDB=championsDB)
 
@@ -37,6 +41,7 @@ def index():
 def add_champion_stats():
     champion = get_champion_web_model()
     add_champion(new_champion=champion)
+    save_data_to_file()
     return redirect(url_for("index"))
 
 
@@ -44,16 +49,17 @@ def add_champion_stats():
 def edit_champ_stats():
     champion = get_champion_web_model()
     edit_champion(champion)
+    save_data_to_file()
     return redirect(url_for("index"))
 
 
 @app.route('/delete_champ', methods=["POST"])
 def delete_champ_stats():
     champion_id = request.form.get("champion-id")
-    print(champion_id)
     delete_champion(champion_id)
+    save_data_to_file()
     return redirect(url_for("index"))
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run() #debug=True
