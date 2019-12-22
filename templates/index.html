@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Harvest Challenge</title>
 </head>
 <body>
 
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Champ name</th>
+                    <th>Matches count</th>
+                    <th>Souls</th>
+                    <th>Stats</th>
+                    <th>Game time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for champion in championsDB %}
+                <tr>
+                    <td>{{ champion.name }}</td>
+                    <td>{{ champion.matches }}</td>
+                    <td>{{ champion.souls }}</td>
+                    <td>{{ champion.stats }}</td>
+                    <td>{{ champion.game_time }}</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <br/>
+    <hr/>
+    <div>
+        <form action="/add_champion_stats" method="post">
+            <label>Champ name</label>
+            <input type="text" name="champion-name">
+            <br/>
+            <label>Champ matches</label>
+            <input type="text" name="champion-matches">
+            <br/>
+            <label>Champ souls</label>
+            <input type="text" name="champion-souls">
+            <br/>
+            <label>Champ stats</label>
+            <input type="text" name="champion-stats">
+            <br/>
+            <label>Champ game time</label>
+            <input type="text" name="champion-game-time">
+            <br/>
+            <input type="submit" value="Add new Stats">
+        </form>
+    </div>
 </body>
 </html>
