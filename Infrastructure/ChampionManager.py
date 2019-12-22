@@ -1,5 +1,3 @@
-import Models.Champion
-
 championsDB = []
 
 
