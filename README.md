@@ -4,17 +4,17 @@ Simple app written in python with flask framework, to manage challenge result da
 ### Creating executable file
 1. Install pyinstaller
 
-```
+```sh
 pip install pyinstaller
 ```
 
 2. Build command 
-```
+```sh
 pyinstaller --onefile --add-data "templates;templates" --add-data "static;static" app.py
 ```        
 3. If some errors occurs, try fix from github {2} - add those lines of code to main file, to tell flask about templates folder localization
 
-```
+```python
 import os
 import sys
 from flask import Flask
