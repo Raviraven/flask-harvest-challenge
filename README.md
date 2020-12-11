@@ -1,5 +1,21 @@
 # Flask harvest challenge
-Simple app written in python with flask framework, to manage challenge result data via web page
+Simple app written in python with flask framework, to learn python + flask and manage some League of Legends challenge result data via web page.  
+
+## Setup
+1. Download repository
+2. Install required packages
+```sh
+pip install -r requirements.txt
+```
+3. Run app using
+```sh
+python HarvestChallenge.py
+```
+4. Enter website address listed in cmd in your browser. 
+5. Enjoy :) 
+
+## Screenshots
+![index page](gh/index.png)
 
 ### Creating executable file
 1. Install pyinstaller
